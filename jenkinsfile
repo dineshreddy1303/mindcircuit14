@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git clone') {
+            steps {
+                echo 'SCM clone'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/dineshreddy1303/mindcircuit14.git'
+            }
+        }
+        stage('build') {
+            steps {
+                echo 'build'
+                sh 'mvn clean install'
+            }
+        }
+        stage('deploy tomcat') {
+            steps {
+                echo 'tomcat'
+                deploy adapters: [tomcat9(credentialsId: 'Tomcat-id', path: '', url: 'http://3.83.42.59:8080/')], contextPath: 'MC', war: '**/*.war'
+            }
+        }
+    }
+}
