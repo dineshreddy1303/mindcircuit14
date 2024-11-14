@@ -1,24 +1,21 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fbdeploy
+  name: web
   labels:
-    app: facebook
+    app: web
 spec:
   selector:
     matchLabels:
-      app: facebook 
-  replicas: 2 
+      app: web
   template:
     metadata:
-      name: fbpod
       labels:
-        app: facebook
+        app: web
     spec:
       containers:
-        - name: fbcont
-          image: devopshubg333/batch14:pythonapp
+        - name: web
+          image: dockersamples/wordsmith-web
           ports:
-            - containerPort: 8080
-
+            - containerPort: 80
+              name: web
