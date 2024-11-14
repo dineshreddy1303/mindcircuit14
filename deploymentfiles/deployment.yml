@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: dockersamples/wordsmith-web
+          image: devopshubg333/batch14:mcappimag
           ports:
             - containerPort: 80
               name: web
