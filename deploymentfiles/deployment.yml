@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: devopshubg333/batch14:mcappimag
+          image: dini1303/dinesh:tag
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: web
