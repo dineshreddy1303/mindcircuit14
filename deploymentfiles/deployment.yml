@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: dini1303/dinesh:11
+          image: dini1303/dinesh:12
           ports:
             - containerPort: 8080
               name: web
